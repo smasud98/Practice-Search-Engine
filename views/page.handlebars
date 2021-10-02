@@ -1,0 +1,42 @@
+<h1>Here is the Page with ID: {{page.id}}</h1>
+<h5>URL: {{page.url}}</h5>
+
+<br>
+<p>This page will contain the Page Id and URL followed by the outgoing links and incoming links and finally conclude with the page text</p>
+<br>
+<h4>PageRank: {{rank}}</h4>
+<br>
+
+<h4>Outgoing Links    #{{page.outgoingLinks.length}}</h4>
+<ul class="list-group">
+    {{#each page.outgoingLinks}}
+        <li class="list-group-item">{{this}}</li>
+    {{/each}}
+</ul>
+
+<br>
+<br>
+<br>
+<h4>Incoming Links   #{{page.incomingLinks.length}}</h4>
+<ul class="list-group">
+    {{#each page.incomingLinks}}
+        <li class="list-group-item">{{this}}</li>
+    {{/each}}
+</ul>
+
+<br>
+<br>
+<h4>Page Text</h4>
+<p>{{page.text}}</p>
+
+<br>
+<br>
+<div class="col-lg-6 text-center">
+    <form action="/fruits" method="GET">
+        <input type="submit" value="Return to Search" class="btn btn-primary btn-block">
+    </form>
+</div>
+<br>
+<br>
+<br>
+<br>

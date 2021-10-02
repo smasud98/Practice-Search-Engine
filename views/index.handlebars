@@ -1,0 +1,86 @@
+<div class="container col-lg-12" style="background-color:rgb(252, 252, 252); color:rgb(14, 14, 14)">
+    <h1 class="text-center mb-3"><strong>SEARCH ENGINE</strong></h1>
+</div>
+<br>
+<br>
+<br>
+
+<div class="container-fluid" style="background-color:rgb(239, 255, 255); padding: 40px; ">
+    
+    <div class="row align-items-center" style="background-color:rgb(255, 255, 255); padding: 10px;">
+        <div class="col-md-4">
+            <form action="/fruits" method="GET">
+                <input type="submit" value="Crawl" class="btn btn-primary btn-block">
+            </form>
+        </div>  
+        <div class="col-md-6">
+            <h5>Begin by crawling and scraping the data &nbsp;&nbsp;   {{done}}</h5>
+        </div>
+    </div>
+    
+    <br>
+    <div class="row">
+        <div class="col-lg-6">
+                <form class="mb-4" action="/fruits" method="POST">
+                    <div class="form-group">
+                        <label for="text">Fruit Search</label>
+                        <input type="text" name="queryFruits" class="form-control">
+                    </div>
+                    <div class="form-group">
+                        <label for="text">Number of Results (1 - 50)</label>
+                        <input type="text" name="limit" class="form-control">
+                    </div>
+                    <label for="text">Boost By Page Rank</label>
+                    <input class="form-check-input" type="checkbox" value="true" name="checkBoost">
+                    <button type="submit" value="Search" class="btn btn-success btn-block">Search</button>
+                </form>
+        </div>
+
+
+
+        <div class="col-lg-6">
+                <form class="mb-4" action="/fruits" method="POST">
+                    <div class="form-group">
+                        <label for="text">Other Website Search</label>
+                        <input type="text" name="queryPersonal" class="form-control">
+                    </div>
+                    <div class="form-group">
+                        <label for="text">Number of Results (1 - 50)</label>
+                        <input type="text" name="limit" class="form-control">
+                    </div>
+                    <label for="text">Boost By Page Rank</label>
+                    <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault">
+                    <button type="submit" value="Search" class="btn btn-success btn-block">Search</button>
+                </form>
+        </div>
+
+
+    </div>
+</div>
+
+<div class="container" >
+    <h2 class="text-center mb-3">Display Results for: {{query}}</h2>
+    <br>
+    <ul class="list-group">
+        {{#each response}}
+        <div class="row">
+            <div class="col-lg-2">
+                <form action="/fruits/{{this.ref}}" method="GET">
+                    <input type="submit" value="Go to Page" class="btn btn-info btn-block">
+                </form>
+            </div>
+
+            <li class="list-group-item col-lg-1">
+                ID: {{this.ref}}
+            </li>
+            <li class="list-group-item col-lg-3">
+                Score: {{this.score}}
+            </li>
+            <li class="list-group-item col-lg-6">
+                URL: https://people.scs.carleton.ca/~davidmckenney/fruitgraph/N-{{this.ref}}.html
+            </li>
+
+        </div>
+        {{/each}}
+    </ul>
+</div>
