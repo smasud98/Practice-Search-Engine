@@ -1,4 +1,6 @@
-Author: Shatil Masud    101040995
+Author: Shatil Masud
+
+This project is a search engine website built using Express.js and MongoDB to allow users to search fruits on a sample dummy website and all outgoing links connected to it. This search engine makes use of web crawlers to scrape all data from each page include the outgoing links, and recursively repeats the process using a specified selection policy. Using a combination of the elasticlunr library and by implementing Google's PageRank algorithm, a user can search a word or a series of words and will be outputted a specified number of ranked results of web pages where there search occurs.
 
 1) Install packages with 'npm install'
 
